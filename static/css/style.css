@@ -39,6 +39,22 @@
   display: block;
 }
 
+/* Phones: logo and nav took ~390 of 812px before any content. Shrink the
+   logo and tighten the nav so it fits in two rows. */
+@media (max-width: 575.98px) {
+  #logo {
+    width: auto;
+    height: 96px;
+    padding: 12px;
+  }
+  #nav .nav-link {
+    padding: 0.35rem 0.5rem;
+  }
+  #content {
+    margin-top: 1em;
+  }
+}
+
 /* Keep the footer at the bottom of short pages without fixing it over the
    content (a fixed footer covered ~18% of a phone screen). */
 body {
@@ -59,6 +75,23 @@ footer {
 
 p {
   text-align: justify
+}
+
+/* Tables (wrapped in .table-responsive by _markup/render-table.html) scroll
+   inside their box instead of pushing the whole page sideways. Keep the
+   first column ("Exercise 1") and each link on one line so cells don't
+   break into one word per row. */
+.table-responsive {
+  margin-bottom: 1rem;
+}
+.table-responsive td:first-child,
+.table-responsive td a {
+  white-space: nowrap;
+}
+.table-responsive th,
+.table-responsive td {
+  padding: 0.25rem 0.5rem;
+  vertical-align: top;
 }
 
 /* Team */
