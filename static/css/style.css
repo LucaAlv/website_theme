@@ -259,4 +259,34 @@ div.pdf div.pdf-paginator{
   ul.section_skipper #prev_in_section a {
     text-align: right;
   }
+  /* Team: drop the list indent and use smaller photos, so the text gets
+     most of the width instead of wrapping in a narrow strip. */
+  h1#team + ul,
+  h2#alumni + ul {
+    padding-left: 0;
+  }
+  h1#team + ul li img,
+  h2#alumni + ul li img {
+    width: 72px;
+    height: 72px;
+    margin-right: 1rem;
+    margin-top: 0;
+  }
+  /* Home: the full list of every chapter's sections made the page ~13,500px
+     tall. Show only the chapter cards; each links to its chapter page, which
+     lists the sections. */
+  #index_chapters > ul > li > ul {
+    display: none;
+  }
+  .chapter_overview > ul > li {
+    margin: 0.75rem auto;
+  }
+  /* Bigger tap targets for links in tables and lists (were ~18px tall). */
+  .table-responsive td a {
+    display: inline-block;
+    padding: 0.25rem 0;
+  }
+  #content li a {
+    padding: 0.3rem 0;
+  }
 }
