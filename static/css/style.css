@@ -39,9 +39,22 @@
   display: block;
 }
 
+/* Keep the footer at the bottom of short pages without fixing it over the
+   content (a fixed footer covered ~18% of a phone screen). */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 #content {
+  flex: 1 0 auto;
   margin-top: 2em;
-  padding-bottom: 4em;
+  padding-bottom: 2em;
+}
+
+footer {
+  padding: 0.5rem 0;
 }
 
 p {
@@ -97,10 +110,10 @@ div.embedded_video {
   width: 100%;
   margin-top: 2rem;
   margin-bottom: 3rem;
-  min-width: 400px;
 }
+/* No min-width/min-height: aspect-ratio already sizes the player, and a
+   400px min-width made pages scroll sideways on phones. */
 div.embedded_video iframe {
-  min-height: 250px;
   width: 100%;
   aspect-ratio: 16 / 9;
   border: solid 1px #888888;
