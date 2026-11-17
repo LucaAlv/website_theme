@@ -39,22 +39,6 @@
   display: block;
 }
 
-/* Phones: logo and nav took ~390 of 812px before any content. Shrink the
-   logo and tighten the nav so it fits in two rows. */
-@media (max-width: 575.98px) {
-  #logo {
-    width: auto;
-    height: 96px;
-    padding: 12px;
-  }
-  #nav .nav-link {
-    padding: 0.35rem 0.5rem;
-  }
-  #content {
-    margin-top: 1em;
-  }
-}
-
 /* Keep the footer at the bottom of short pages without fixing it over the
    content (a fixed footer covered ~18% of a phone screen). */
 body {
@@ -231,4 +215,48 @@ canvas.pdf-canvas {
 div.pdf div.pdf-paginator{
     text-align: center;
     margin-bottom: 10px;
+}
+
+/* Phones. Keep this block last: it overrides rules above with the same
+   selectors, and the later rule wins.
+   Logo and nav took ~390 of 812px before any content. Shrink the logo and
+   tighten the nav so it fits in two rows. */
+@media (max-width: 575.98px) {
+  #logo {
+    width: auto;
+    height: 96px;
+    padding: 12px;
+  }
+  #nav .nav-link {
+    padding: 0.35rem 0.5rem;
+  }
+  #content {
+    margin-top: 1em;
+  }
+  /* Justified text leaves wide gaps between words on narrow columns. */
+  p {
+    text-align: left;
+  }
+  /* Prev/next chapter buttons: the floats made one short button and one
+     full-width, two-line button. Stack both at full width instead. The
+     arrows tell direction, so align the text to match them. */
+  ul.section_skipper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 2rem 0;
+  }
+  ul.section_skipper #next_in_section,
+  ul.section_skipper #prev_in_section {
+    float: none;
+  }
+  ul.section_skipper a {
+    display: block;
+  }
+  ul.section_skipper #next_in_section a {
+    text-align: left;
+  }
+  ul.section_skipper #prev_in_section a {
+    text-align: right;
+  }
 }
