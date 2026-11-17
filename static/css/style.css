@@ -281,11 +281,10 @@ div.pdf div.pdf-paginator{
   .chapter_overview > ul > li {
     margin: 0.75rem auto;
   }
-  /* Bigger tap targets for links in tables and lists (were ~18px tall). */
-  .table-responsive td a {
-    display: inline-block;
-    padding: 0.25rem 0;
-  }
+  /* Bigger tap targets for links in tables and lists (were ~18px tall).
+     Vertical padding on inline links grows the tap area without changing
+     line breaks (inline-block split "Exercise, Solution" around the comma). */
+  .table-responsive td a,
   #content li a {
     padding: 0.3rem 0;
   }
